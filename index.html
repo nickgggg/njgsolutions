@@ -9,7 +9,19 @@
             height: 100%;
             overflow: hidden;
             position: relative;
-        }
+  --s: 100px; /* control the size*/
+  --c1: #e4eaec;
+  --c2: #edf6ee;
+    
+  background:
+    conic-gradient(var(--c1) 25%,#0000 0 50%,var(--c2) 0 75%,#0000 0),
+    linear-gradient(135deg,
+      var(--c1) 0 12.5%,var(--c2) 0 25%,
+      var(--c1) 0 37.5%,var(--c2) 0 62.5%,
+      var(--c1) 0 75%  ,var(--c2) 0 87.5%,
+      var(--c1) 0);
+  background-size: var(--s) var(--s);
+}
         body {
             line-height: 1.5;
             font-size: 36px;
@@ -47,13 +59,15 @@
             flex-wrap: wrap;
             justify-content: space-evenly;
             white-space: nowrap;
+            gap: 10px
         }
         .services p {
             margin: .5rem;
             text-align: center;
-            background-color: lightblue;
+            background-color: #bdccdb;
             border-radius: 25px;
-            padding: 10px 20px 10px 20px;
+            padding: 20px;
+            box-shadow: 5px 5px 5px lightgray;
         }
         .contact {
             text-align: center;
@@ -62,6 +76,9 @@
             margin: 0;
             padding: 40px;
             font-size: 36px;
+        }
+        .contact a p span {
+            color: blue;
         }
         footer {
             display: flex;
@@ -82,7 +99,7 @@
     <header>
         <div>
             <h1>NJG Solutions</h1>
-            <h2>restaurant technology & digital consulting services</h2>
+            <h2>restaurant technology & digital consulting services partner</h2>
         </div>
     </header>
     <main>
@@ -98,12 +115,12 @@
         </div>
 
         <div class="contact">
-            <p>Get in touch at <a href="mailto:njg@outlook.com">njg@outlook.com</a></p>
+            <p>Get in touch at <a href="mailto:nick@njg.solutions"><span>nick@njg.solutions</span></a></p>
         </div>
     </main>
     <footer>
         <p>Orange County, CA</p>
-        <p>Est. 2017 - 2024</p>
+        <p>Est. 2017 - 2025</p>
     </footer>
 </body>
 </html>
