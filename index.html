@@ -9,19 +9,7 @@
             height: 100%;
             overflow: hidden;
             position: relative;
-  --s: 100px; /* control the size*/
-  --c1: #e4eaec;
-  --c2: #edf6ee;
-    
-  background:
-    conic-gradient(var(--c1) 25%,#0000 0 50%,var(--c2) 0 75%,#0000 0),
-    linear-gradient(135deg,
-      var(--c1) 0 12.5%,var(--c2) 0 25%,
-      var(--c1) 0 37.5%,var(--c2) 0 62.5%,
-      var(--c1) 0 75%  ,var(--c2) 0 87.5%,
-      var(--c1) 0);
-  background-size: var(--s) var(--s);
-}
+        }
         body {
             line-height: 1.5;
             font-size: 36px;
@@ -31,6 +19,18 @@
             justify-content: space-between;
             height: 100%;
             max-height: -webkit-fill-available;
+            /* PATTERN */
+            --s: 100px; /* control the size*/
+            --c1: #e4eaec;
+            --c2: #edf6ee;
+            background:
+                conic-gradient(var(--c1) 25%,#0000 0 50%,var(--c2) 0 75%,#0000 0),
+                linear-gradient(135deg,
+                var(--c1) 0 12.5%,var(--c2) 0 25%,
+                var(--c1) 0 37.5%,var(--c2) 0 62.5%,
+                var(--c1) 0 75%  ,var(--c2) 0 87.5%,
+                var(--c1) 0);
+            background-size: var(--s) var(--s);
         }
         header {
             text-align: center;
@@ -65,7 +65,7 @@
             margin: .5rem;
             text-align: center;
             background-color: #bdccdb;
-            border-radius: 25px;
+            border-radius: 2rem;
             padding: 20px;
             box-shadow: 5px 5px 5px lightgray;
         }
@@ -92,6 +92,13 @@
         }
         footer p {
             margin: 0;
+        }
+
+        @media (min-width: 1024px) {
+            html {background: white; margin: 2rem 5rem 2rem 5rem;}
+            body {border: 3px solid black;height: fit-content;}
+            h1,h2,footer {font-size: 2rem;}
+            body,p,.contact p {font-size: 1.5rem;}
         }
     </style>
 </head>
