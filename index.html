@@ -13,6 +13,7 @@
         body {
             line-height: 1.5;
             font-size: 36px;
+            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -21,8 +22,8 @@
             max-height: -webkit-fill-available;
             /* PATTERN */
             --s: 100px; /* control the size*/
-            --c1: #e4eaec;
-            --c2: #edf6ee;
+            --c1: hsl(0, 0%, 93%);
+            --c2: hsl(0, 0%, 90%);
             background:
                 conic-gradient(var(--c1) 25%,#0000 0 50%,var(--c2) 0 75%,#0000 0),
                 linear-gradient(135deg,
@@ -36,15 +37,16 @@
             text-align: center;
         }
         header h1 {
+            font-family: serif;
             background-color: blue;
             color: white;
             margin: 0;
-            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            text-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
         header h2 {
             padding: 40px;
             margin: 0;
-            font-style: italic;
             font-family: sans-serif;
         }
         main {
@@ -65,10 +67,13 @@
         .services p {
             margin: .5rem;
             text-align: center;
-            background-color: #bdccdb;
-            border-radius: 2rem;
+            background-color: #f8f8f8;
+            border-radius: 2.5rem;
             padding: 20px;
             box-shadow: 5px 5px 5px lightgray;
+        }
+        .services p:hover {
+            background-color: #eeeef5;
         }
         .contact {
             text-align: center;
@@ -89,7 +94,7 @@
             text-align: center;
             padding: 20px;
             background-color: black;
-            color: white;
+            color: rgba(255, 255, 255, 0.95);
         }
         footer p {
             margin: 0;
@@ -97,10 +102,13 @@
 
         @media (min-width: 1024px) {
             html {background: white; margin: 2rem 5rem 2rem 5rem;}
-            body {border: 3px solid black;height: fit-content;}
+            body {border: 3px solid black;
+                height: fit-content;}
             h1 {font-size: 3rem;}
-            h2,footer {font-size: 2rem;}
-            body,p,.contact p {font-size: 1.5rem;}
+            h2 {font-size: 1.75rem;}
+            body {font-size: 1.25rem;}
+            .contact p {font-size: 1.25rem;}
+            footer {font-size: 1rem;}
         }
     </style>
 </head>
@@ -108,12 +116,12 @@
     <header>
         <div>
             <h1>NJG Solutions</h1>
-            <h2>restaurant technology & digital consulting services partner</h2>
+            <h2>helping restaurants streamline operations through technology</h2>
         </div>
     </header>
     <main>
         <div class="services">
-            <p>Toast POS &#127838; &#128421;</p>
+            <p>Toast POS &#127838;</p>
             <p>Online Ordering &#128757;</p>
             <p>Menu Engineering &#128196;</p>
             <p>Integrations &#128391;</p>
@@ -121,15 +129,16 @@
             <p>Marketing Technologies &#128233;</p>
             <p>Digital Signage &#128250;</p>
             <p>Websites &#127760;</p>
+            <p>Back Office &#128421;</p>
         </div>
 
         <div class="contact">
-            <p>Get in touch at <a href="mailto:nick@njg.solutions"><span>nick@njg.solutions</span></a></p>
+            <p>Let’s talk about optimizing your restaurant technologies. <br> Reach me at <a href="mailto:nick@njg.solutions"><span>nick@njg.solutions</span></a></p>
         </div>
     </main>
     <footer>
         <p>Orange County, CA</p>
-        <p>Est. 2017 - 2025</p>
+        <p>Since 2017</p>
     </footer>
 </body>
 </html>
