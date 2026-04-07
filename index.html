@@ -18,11 +18,12 @@
         body {
             margin: 0;
             height: 100svh;
+            height: 100dvh;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            line-height: 1.4;
+            line-height: 1.35;
             font-size: clamp(18px, 2.2vw, 36px);
             font-family: Arial, Helvetica, sans-serif;
 
@@ -47,6 +48,7 @@
 
         header h1 {
             margin: 0;
+            line-height: 1.1;
             font-family: serif;
             font-size: clamp(2.2rem, 6vw, 3rem);
             background-color: blue;
@@ -57,18 +59,20 @@
 
         header h2 {
             margin: 0;
-            padding: clamp(16px, 3vw, 32px);
+            padding: clamp(14px, 3vw, 32px);
+            line-height: 1.2;
             font-family: sans-serif;
             font-size: clamp(1.05rem, 2.8vw, 1.75rem);
         }
 
         main {
             flex: 1;
+            min-height: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            gap: clamp(12px, 2vw, 24px);
-            padding: clamp(12px, 2vw, 20px);
+            gap: clamp(10px, 2vw, 22px);
+            padding: clamp(10px, 2vw, 20px);
         }
 
         .services {
@@ -83,7 +87,8 @@
             padding: 10px 16px;
             white-space: nowrap;
             text-align: center;
-            font-size: 0.85em;
+            line-height: 1.2;
+            font-size: 0.84em;
             background-color: #f8f8f8;
             border-radius: 2.5rem;
             box-shadow: 5px 5px 5px lightgray;
@@ -99,7 +104,7 @@
 
         .contact p {
             margin: 0;
-            padding: clamp(16px, 3vw, 32px);
+            padding: clamp(14px, 3vw, 32px);
             font-size: inherit;
         }
 
@@ -113,16 +118,63 @@
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 8px 20px;
-            padding: 14px 20px;
+            padding: 12px 20px;
             background-color: black;
             color: rgba(255, 255, 255, 0.95);
             font-style: italic;
             text-align: center;
-            font-size: clamp(0.95rem, 1.6vw, 1rem);
+            font-size: clamp(0.9rem, 1.6vw, 1rem);
         }
 
         footer p {
             margin: 0;
+        }
+
+        @media (orientation: landscape) and (max-height: 430px) {
+            body {
+                font-size: 15px;
+            }
+
+            header h1 {
+                font-size: 1.95rem;
+            }
+
+            header h2 {
+                padding: 8px 14px;
+                font-size: 0.95rem;
+            }
+
+            main {
+                gap: 8px;
+                padding: 8px 12px;
+            }
+
+            .services {
+                gap: 6px;
+            }
+
+            .services p {
+                padding: 6px 12px;
+                font-size: 0.8em;
+                box-shadow: 3px 3px 4px lightgray;
+            }
+
+            .contact p {
+                padding: 8px 12px;
+                font-size: 0.92em;
+                line-height: 1.2;
+            }
+
+            .contact-break {
+                display: none;
+            }
+
+            footer {
+                justify-content: center;
+                gap: 6px 18px;
+                padding: 8px 14px;
+                font-size: 0.82rem;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -161,7 +213,11 @@
         </div>
 
         <div class="contact">
-            <p>Let’s talk about optimizing your restaurant technologies. <br> Reach me at <a href="mailto:nick@njg.solutions">nick@njg.solutions</a></p>
+            <p>
+                Let’s talk about optimizing your restaurant technologies.
+                <br class="contact-break">
+                Reach me at <a href="mailto:nick@njg.solutions">nick@njg.solutions</a>
+            </p>
         </div>
     </main>
 
