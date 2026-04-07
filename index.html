@@ -4,32 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NJG Solutions</title>
-    <link rel="icon" type="image/x-icon" href="favicon.svg" />
+    <link rel="icon" href="favicon.svg" />
     <style>
-        html {
-            height: 100%;
-            background: white;
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            height: 100svh;
-            height: 100dvh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            line-height: 1.35;
-            font-size: clamp(18px, 2.2vw, 36px);
-            font-family: Arial, Helvetica, sans-serif;
-
+        :root {
+            --blue: #00f;
+            --text: #111;
+            --surface: rgba(255, 255, 255, 0.82);
+            --shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+            --space-1: clamp(8px, 1.2vw, 12px);
+            --space-2: clamp(14px, 2vw, 22px);
+            --space-3: clamp(20px, 3vw, 36px);
             --s: 100px;
             --c1: hsl(0, 0%, 93%);
             --c2: hsl(0, 0%, 90%);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100svh;
+            min-height: 100dvh;
+            overflow: hidden;
+            color: var(--text);
+            font: 400 16px/1.35 Arial, Helvetica, sans-serif;
             background:
                 conic-gradient(var(--c1) 25%, #0000 0 50%, var(--c2) 0 75%, #0000 0),
                 linear-gradient(
@@ -42,60 +46,81 @@
             background-size: var(--s) var(--s);
         }
 
+        .page {
+            min-height: 100svh;
+            min-height: 100dvh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+
         header {
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            line-height: 1.1;
-            font-family: serif;
-            font-size: clamp(2.2rem, 6vw, 3rem);
-            background-color: blue;
+            background: var(--blue);
             color: white;
-            text-shadow: 0 4px 1px rgba(0, 0, 0, 0.25);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: clamp(10px, 1.8vw, 16px) 16px;
         }
 
-        header h2 {
+        h1 {
             margin: 0;
-            padding: clamp(14px, 3vw, 32px);
-            line-height: 1.2;
-            font-family: sans-serif;
-            font-size: clamp(1.05rem, 2.8vw, 1.75rem);
+            line-height: 0.95;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(3rem, 8vw, 4.4rem);
+            font-weight: 700;
+            text-shadow: 0 4px 1px rgba(0, 0, 0, 0.25);
         }
 
         main {
-            flex: 1;
-            min-height: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            gap: clamp(10px, 2vw, 22px);
-            padding: clamp(10px, 2vw, 20px);
+            display: grid;
+            align-content: center;
+            gap: var(--space-3);
+            padding: clamp(18px, 3vw, 40px) clamp(16px, 3vw, 40px);
+        }
+
+        .wrap {
+            width: min(1120px, 100%);
+            margin: 0 auto;
+        }
+
+        .intro {
+            text-align: center;
+        }
+
+        .intro p {
+            margin: 0;
+            font-size: clamp(1.05rem, 3vw, 2rem);
+            line-height: 1.12;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-wrap: balance;
         }
 
         .services {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            width: min(980px, 100%);
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--space-1);
         }
 
-        .services p {
+        .services li {
             margin: 0;
-            padding: 10px 16px;
-            white-space: nowrap;
-            text-align: center;
-            line-height: 1.2;
-            font-size: 0.84em;
-            background-color: #f8f8f8;
-            border-radius: 2.5rem;
-            box-shadow: 5px 5px 5px lightgray;
         }
 
-        .services p:hover {
-            background-color: #eeeef5;
+        .service {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 999px;
+            text-align: center;
+            font-size: clamp(1rem, 2.2vw, 1.15rem);
+            font-weight: 500;
+            background: var(--surface);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            white-space: nowrap;
         }
 
         .contact {
@@ -104,126 +129,129 @@
 
         .contact p {
             margin: 0;
-            padding: clamp(14px, 3vw, 32px);
-            font-size: inherit;
+            font-size: clamp(1.1rem, 3.2vw, 1.9rem);
+            line-height: 1.2;
+            text-wrap: balance;
         }
 
         .contact a {
-            color: blue;
+            color: var(--blue);
             text-decoration: none;
+            font-weight: 500;
         }
 
         footer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 8px 20px;
-            padding: 12px 20px;
-            background-color: black;
+            background: black;
             color: rgba(255, 255, 255, 0.95);
+            padding: 14px 16px;
             font-style: italic;
-            text-align: center;
-            font-size: clamp(0.9rem, 1.6vw, 1rem);
         }
 
-        footer p {
+        .footer-inner {
+            width: min(1120px, 100%);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+        }
+
+        .footer-inner p {
             margin: 0;
         }
 
-        @media (orientation: landscape) and (max-height: 430px) {
-            body {
-                font-size: 15px;
-            }
-
-            header h1 {
-                font-size: 1.95rem;
-            }
-
-            header h2 {
-                padding: 8px 14px;
-                font-size: 0.95rem;
-            }
-
-            main {
-                gap: 8px;
-                padding: 8px 12px;
-            }
-
+        @media (min-width: 700px) {
             .services {
-                gap: 6px;
-            }
-
-            .services p {
-                padding: 6px 12px;
-                font-size: 0.8em;
-                box-shadow: 3px 3px 4px lightgray;
-            }
-
-            .contact p {
-                padding: 8px 12px;
-                font-size: 0.92em;
-                line-height: 1.2;
-            }
-
-            .contact-break {
-                display: none;
-            }
-
-            footer {
-                justify-content: center;
-                gap: 6px 18px;
-                padding: 8px 14px;
-                font-size: 0.82rem;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
 
-        @media (min-width: 1024px) {
-            body {
-                height: auto;
-                min-height: auto;
-                margin: 2rem 5rem;
-                border: 3px solid black;
-                overflow: visible;
+        @media (min-width: 980px) {
+            .services {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 500px) {
+            header {
+                padding: 6px 12px;
             }
 
-            .services p {
-                padding: 14px 20px;
-                font-size: 0.95em;
+            h1 {
+                font-size: clamp(2.2rem, 5vw, 3rem);
+            }
+
+            main {
+                gap: 12px;
+                padding: 12px 16px;
+            }
+
+            .intro p {
+                font-size: 1rem;
+                line-height: 1.1;
+            }
+
+            .services {
+                width: 100%;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 8px;
+            }
+
+            .service {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            }
+
+            .contact p {
+                font-size: 1rem;
+                line-height: 1.15;
+            }
+
+            footer {
+                padding: 8px 14px;
+            }
+
+            .footer-inner {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>NJG Solutions</h1>
-        <h2>helping restaurants streamline operations through technology</h2>
-    </header>
+    <div class="page">
+        <header>
+            <h1>NJG Solutions</h1>
+        </header>
 
-    <main>
-        <div class="services">
-            <p>Toast POS &#127838;</p>
-            <p>Online Ordering &#128757;</p>
-            <p>Menu Engineering &#128196;</p>
-            <p>Integrations &#128391;</p>
-            <p>Business Listings &#127970;</p>
-            <p>Marketing Technologies &#128233;</p>
-            <p>Digital Signage &#128250;</p>
-            <p>Websites &#127760;</p>
-            <p>Back Office &#128421;</p>
-        </div>
+        <main>
+            <div class="wrap intro">
+                <p>helping restaurants streamline operations through technology</p>
+            </div>
 
-        <div class="contact">
-            <p>
-                Let’s talk about optimizing your restaurant technologies.
-                <br class="contact-break">
-                Reach me at <a href="mailto:nick@njg.solutions">nick@njg.solutions</a>
-            </p>
-        </div>
-    </main>
+            <ul class="services">
+                <li><span class="service">Toast POS</span></li>
+                <li><span class="service">Online Ordering</span></li>
+                <li><span class="service">Menu Engineering</span></li>
+                <li><span class="service">Integrations</span></li>
+                <li><span class="service">Digital Signage</span></li>
+                <li><span class="service">Websites</span></li>
+                <li><span class="service">Business Listings</span></li>
+                <li><span class="service">Back Office</span></li>
+                <li><span class="service">Marketing Technologies</span></li>
+            </ul>
 
-    <footer>
-        <p>Orange County, CA</p>
-        <p>Since 2017</p>
-    </footer>
+            <div class="wrap contact">
+                <p>Let’s talk about optimizing your restaurant technologies. Reach me at <a href="mailto:nick@njg.solutions">nick@njg.solutions</a></p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-inner">
+                <p>Orange County, CA</p>
+                <p>Since 2017</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
