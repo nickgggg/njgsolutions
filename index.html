@@ -1,124 +1,140 @@
-<!DOCTYPE html>
-<html>
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NJG Solutions</title>
-    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.svg" />
     <style>
         html {
             height: 100%;
-            overflow: hidden;
-            position: relative;
+            background: white;
         }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
-            line-height: 1.5;
-            font-size: 36px;
-            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
+            min-height: 100svh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
-            max-height: -webkit-fill-available;
-            /* PATTERN */
-            --s: 100px; /* control the size*/
+            line-height: 1.5;
+            font-size: clamp(20px, 2.4vw, 36px);
+            font-family: Arial, Helvetica, sans-serif;
+
+            --s: 100px;
             --c1: hsl(0, 0%, 93%);
             --c2: hsl(0, 0%, 90%);
             background:
-                conic-gradient(var(--c1) 25%,#0000 0 50%,var(--c2) 0 75%,#0000 0),
-                linear-gradient(135deg,
-                var(--c1) 0 12.5%,var(--c2) 0 25%,
-                var(--c1) 0 37.5%,var(--c2) 0 62.5%,
-                var(--c1) 0 75%  ,var(--c2) 0 87.5%,
-                var(--c1) 0);
+                conic-gradient(var(--c1) 25%, #0000 0 50%, var(--c2) 0 75%, #0000 0),
+                linear-gradient(
+                    135deg,
+                    var(--c1) 0 12.5%, var(--c2) 0 25%,
+                    var(--c1) 0 37.5%, var(--c2) 0 62.5%,
+                    var(--c1) 0 75%, var(--c2) 0 87.5%,
+                    var(--c1) 0
+                );
             background-size: var(--s) var(--s);
         }
+
         header {
             text-align: center;
         }
+
         header h1 {
+            margin: 0;
             font-family: serif;
+            font-size: clamp(2.4rem, 6vw, 3rem);
             background-color: blue;
             color: white;
-            margin: 0;
-            text-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 4px 1px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
         header h2 {
-            padding: 40px;
             margin: 0;
+            padding: clamp(24px, 5vw, 40px);
             font-family: sans-serif;
+            font-size: clamp(1.15rem, 3vw, 1.75rem);
         }
+
         main {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 20px;
-            font-family: sans-serif;
-            height: 100%;
             justify-content: space-evenly;
+            gap: clamp(20px, 4vw, 40px);
+            padding: clamp(16px, 3vw, 20px);
         }
+
         .services {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
-            white-space: nowrap;
-            gap: 10px
+            justify-content: center;
+            gap: 10px;
         }
+
         .services p {
-            margin: .5rem;
+            margin: 0;
+            padding: 20px;
+            white-space: nowrap;
             text-align: center;
             background-color: #f8f8f8;
             border-radius: 2.5rem;
-            padding: 20px;
             box-shadow: 5px 5px 5px lightgray;
         }
+
         .services p:hover {
             background-color: #eeeef5;
         }
+
         .contact {
             text-align: center;
         }
+
         .contact p {
             margin: 0;
-            padding: 40px;
-            font-size: 36px;
+            padding: clamp(24px, 5vw, 40px);
+            font-size: inherit;
         }
-        .contact a p span {
+
+        .contact a {
             color: blue;
         }
+
         footer {
             display: flex;
-            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: space-between;
-            font-style: italic;
-            text-align: center;
+            gap: 10px 20px;
             padding: 20px;
             background-color: black;
             color: rgba(255, 255, 255, 0.95);
+            font-style: italic;
+            text-align: center;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
         }
+
         footer p {
             margin: 0;
         }
 
         @media (min-width: 1024px) {
-            html {background: white; margin: 2rem 5rem 2rem 5rem;}
-            body {border: 3px solid black;
-                height: fit-content;}
-            h1 {font-size: 3rem;}
-            h2 {font-size: 1.75rem;}
-            body {font-size: 1.25rem;}
-            .contact p {font-size: 1.25rem;}
-            footer {font-size: 1rem;}
+            body {
+                min-height: auto;
+                margin: 2rem 5rem;
+                border: 3px solid black;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div>
-            <h1>NJG Solutions</h1>
-            <h2>helping restaurants streamline operations through technology</h2>
-        </div>
+        <h1>NJG Solutions</h1>
+        <h2>helping restaurants streamline operations through technology</h2>
     </header>
+
     <main>
         <div class="services">
             <p>Toast POS &#127838;</p>
@@ -133,9 +149,13 @@
         </div>
 
         <div class="contact">
-            <p>Let’s talk about optimizing your restaurant technologies. <br> Reach me at <a href="mailto:nick@njg.solutions"><span>nick@njg.solutions</span></a></p>
+            <p>
+                Let’s talk about optimizing your restaurant technologies.<br />
+                Reach me at <a href="mailto:nick@njg.solutions">nick@njg.solutions</a>
+            </p>
         </div>
     </main>
+
     <footer>
         <p>Orange County, CA</p>
         <p>Since 2017</p>
