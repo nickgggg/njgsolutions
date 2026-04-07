@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,12 +17,13 @@
 
         body {
             margin: 0;
-            min-height: 100svh;
+            height: 100svh;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            line-height: 1.5;
-            font-size: clamp(20px, 2.4vw, 36px);
+            line-height: 1.4;
+            font-size: clamp(18px, 2.2vw, 36px);
             font-family: Arial, Helvetica, sans-serif;
 
             --s: 100px;
@@ -45,7 +48,7 @@
         header h1 {
             margin: 0;
             font-family: serif;
-            font-size: clamp(2.4rem, 6vw, 3rem);
+            font-size: clamp(2.2rem, 6vw, 3rem);
             background-color: blue;
             color: white;
             text-shadow: 0 4px 1px rgba(0, 0, 0, 0.25);
@@ -54,9 +57,9 @@
 
         header h2 {
             margin: 0;
-            padding: clamp(24px, 5vw, 40px);
+            padding: clamp(16px, 3vw, 32px);
             font-family: sans-serif;
-            font-size: clamp(1.15rem, 3vw, 1.75rem);
+            font-size: clamp(1.05rem, 2.8vw, 1.75rem);
         }
 
         main {
@@ -64,22 +67,23 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            gap: clamp(20px, 4vw, 40px);
-            padding: clamp(16px, 3vw, 20px);
+            gap: clamp(12px, 2vw, 24px);
+            padding: clamp(12px, 2vw, 20px);
         }
 
         .services {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .services p {
             margin: 0;
-            padding: 20px;
+            padding: 10px 16px;
             white-space: nowrap;
             text-align: center;
+            font-size: 0.85em;
             background-color: #f8f8f8;
             border-radius: 2.5rem;
             box-shadow: 5px 5px 5px lightgray;
@@ -95,25 +99,26 @@
 
         .contact p {
             margin: 0;
-            padding: clamp(24px, 5vw, 40px);
+            padding: clamp(16px, 3vw, 32px);
             font-size: inherit;
         }
 
         .contact a {
             color: blue;
+            text-decoration: none;
         }
 
         footer {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 10px 20px;
-            padding: 20px;
+            gap: 8px 20px;
+            padding: 14px 20px;
             background-color: black;
             color: rgba(255, 255, 255, 0.95);
             font-style: italic;
             text-align: center;
-            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            font-size: clamp(0.95rem, 1.6vw, 1rem);
         }
 
         footer p {
@@ -122,9 +127,16 @@
 
         @media (min-width: 1024px) {
             body {
+                height: auto;
                 min-height: auto;
                 margin: 2rem 5rem;
                 border: 3px solid black;
+                overflow: visible;
+            }
+
+            .services p {
+                padding: 14px 20px;
+                font-size: 0.95em;
             }
         }
     </style>
@@ -149,10 +161,7 @@
         </div>
 
         <div class="contact">
-            <p>
-                Let’s talk about optimizing your restaurant technologies.<br />
-                Reach me at <a href="mailto:nick@njg.solutions">nick@njg.solutions</a>
-            </p>
+            <p>Let’s talk about optimizing your restaurant technologies. <br> Reach me at <a href="mailto:nick@njg.solutions">nick@njg.solutions</a></p>
         </div>
     </main>
 
